@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>br.com.lif</groupId>
+  <artifactId>iotegrator-v2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>iotegrator-v2</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  
+  	<dependency>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-resources-plugin</artifactId>
+	    <version>2.4.3</version>
+	</dependency>
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.glassfish.grizzly</groupId>
+    	<artifactId>grizzly-framework</artifactId>
+    	<version>2.4.0</version>
+	</dependency>
+    
+	<dependency>
+	     <groupId>org.glassfish.grizzly</groupId>
+	     <artifactId>grizzly-http</artifactId>
+	     <version>2.4.0</version>
+	</dependency>
+    
+	<dependency>
+	     <groupId>org.glassfish.grizzly</groupId>
+	     <artifactId>grizzly-http-server</artifactId>
+	     <version>2.4.0</version>
+	</dependency>
+
+	<dependency>
+	     <groupId>org.glassfish.grizzly</groupId>
+	     <artifactId>grizzly-websockets</artifactId>
+	     <version>2.4.0</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.google.code.gson</groupId>
+	    <artifactId>gson</artifactId>
+	    <version>2.8.5</version>
+	</dependency>
+	
+	<dependency>
+	     <groupId>org.glassfish.grizzly</groupId>
+	     <artifactId>grizzly-http-server-jaxws</artifactId>
+	     <version>2.4.0</version>
+	</dependency>
+	
+	<dependency>
+	     <groupId>org.glassfish.grizzly</groupId>
+	     <artifactId>grizzly-http-servlet</artifactId>
+	     <version>2.4.0</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>javax.ws.rs</groupId>
+	    <artifactId>javax.ws.rs-api</artifactId>
+	    <version>2.1</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.glassfish.jersey.core</groupId>
+	    <artifactId>jersey-server</artifactId>
+	    <version>2.27</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.glassfish.jersey.containers</groupId>
+	    <artifactId>jersey-container-grizzly2-http</artifactId>
+	    <version>2.27</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.glassfish.jersey.containers</groupId>
+	    <artifactId>jersey-container-servlet</artifactId>
+	    <version>2.27</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.glassfish.jersey.inject</groupId>
+	    <artifactId>jersey-hk2</artifactId>
+	    <version>2.27</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.3.6.Final</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-entitymanager</artifactId>
+	    <version>5.3.6.Final</version>
+	</dependency>	
+	
+	<!-- 
+	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>9.3-1102-jdbc41</version>
+	</dependency>
+	 -->
+	 
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-java8</artifactId>
+	    <version>5.3.6.Final</version>
+	</dependency>
+		
+	<dependency>
+		<groupId>org.glassfish</groupId>
+		<artifactId>javax.faces</artifactId>
+		<version>2.2.4</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.primefaces</groupId>
+		<artifactId>primefaces</artifactId>
+		<version>4.0</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-web-api</artifactId>
+		<version>7.0</version>
+		<scope>provided</scope>
+	</dependency>
+
+  </dependencies>
+</project>

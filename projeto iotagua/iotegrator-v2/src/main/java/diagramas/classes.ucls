@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
+  router="FAN">  
+  <class id="1" language="java" name="br.com.lif.iotegrator_v2.utils.HibernateUtil" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/utils/HibernateUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="211" x="174" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="br.com.lif.iotegrator_v2.dao.Dht11DAO" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/dao/Dht11DAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="126" x="425" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="br.com.lif.iotegrator_v2.utils.jsf.SessionUtil" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/utils/jsf/SessionUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="164" x="591" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="br.com.lif.iotegrator_v2.autentica.ControleDeAcesso" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/autentica/ControleDeAcesso.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="305" x="795" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="br.com.lif.iotegrator_v2.modelo.Fluxo" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/modelo/Fluxo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="204" x="1382" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="br.com.lif.iotegrator_v2.modelo.Value" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/modelo/Value.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="141" x="1140" y="646"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="br.com.lif.iotegrator_v2.utils.jsf.FacesUtil" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/utils/jsf/FacesUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="171" x="1626" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="br.com.lif.iotegrator_v2.modelo.Led" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/modelo/Led.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="141" x="1837" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="br.com.lif.iotegrator_v2.resources.MainResources" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/resources/MainResources.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="152" x="2018" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="br.com.lif.iotegrator_v2.dao.FluxoDAO" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/dao/FluxoDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="126" x="2210" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="br.com.lif.iotegrator_v2.modelo.PostFormat" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/modelo/PostFormat.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="495" width="202" x="1140" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="br.com.lif.iotegrator_v2.Servidor" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/Servidor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="144" x="2376" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="br.com.lif.iotegrator_v2.modelo.Dht11" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/modelo/Dht11.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="459" width="248" x="2560" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="br.com.lif.iotegrator_v2.resources.Dht11Resource" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/resources/Dht11Resource.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="152" x="2848" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="br.com.lif.iotegrator_v2.autentica.AutenticadorBean" project="iotegrator-v2" 
+    file="/iotegrator-v2/src/main/java/br/com/lif/iotegrator_v2/autentica/AutenticadorBean.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="149" x="3040" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="16">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="17" name="medicoes"/>      
+      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

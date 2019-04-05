@@ -1,0 +1,4 @@
+br/com/login/autentica/ControleDeAcesso.class
+br/com/login/util/jsf/SessionUtil.class
+br/com/login/autentica/AutenticadorBean.class
+br/com/login/util/jsf/FacesUtil.class

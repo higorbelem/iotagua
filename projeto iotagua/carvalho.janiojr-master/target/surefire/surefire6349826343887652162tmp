@@ -1,0 +1,8 @@
+#surefire
+#Thu Jun 14 11:49:14 BRT 2018
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=E\:\\Janio_Backup\\Progama\u00E7\u00E3o Java Web\\Workspace\\Middleware
+file.encoding=UTF-8
+localRepository=C\:\\Users\\Janio\\.m2\\repository
+basedir=E\:\\Janio_Backup\\Progama\u00E7\u00E3o Java Web\\Workspace\\Middleware
+test=${packageClassName}

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+        <meta charset="utf-8"/>
+        <title>ACME Web Services</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+
+        <style>
+
+            .branding{
+                font-size:17px;
+            }
+
+            .showcase{
+                background:url('') no-repeat;
+                background-position:center;
+                height: 600px;
+                padding:140px 100px;
+                color:#fff;
+            }
+
+            .showcase h1{
+                font-size:40px;
+                font-weight:700;
+                text-transform: uppercase;
+            }
+
+            .showcase hr{
+                width:100px;
+                margin:auto;
+                border-width:3px;
+                border-color:#f44336;
+            }
+
+            .showcase p{
+                font-size:16px;
+                padding-bottom:20px;
+            }
+
+            .section{
+                padding:40px 0;
+            }
+
+            .section h2{
+                padding:0;
+                margin:0;
+            }
+
+            .section .fa{
+                font-size:50px;
+            }
+
+            .section img{
+                width:100%;
+            }
+
+            @media only screen and (max-width:600px){
+                body{
+                    margin-top:190px;
+                }
+
+                .showcase{
+                    height:400px;
+                    padding: 60px 0;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- NAVIGATION -->
+        <div class="w3-top">
+            <div class="w3-bar w3-black">
+                <span class="branding w3-bar-item w3-mobile">ACME Web Services</span>
+                <span class="w3-right w3-mobile">
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="home.xhtml">Principal</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="users.xhtml">Cadastro</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="alerts.xhtml">Alertas</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="sensors.xhtml">Gráficos</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="page/index.html">Logoff</a>
+                </span>
+            </div>
+        </div>
+
+        <!-- SHOWCASE -->
+        <section class="showcase">
+            <div class="w3-container w3-center">
+                <h1 class="w3-text-shadow w3-animate-opacity">Go Anywhere</h1>
+                <hr/>
+                <p class="w3-animate-opacity">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                <button onclick="document.getElementById('start-modal').style.display = 'block'" class="w3-button w3-red w3-large w3-opacity">Start Here</button>
+            </div>
+        </section>
+
+       
+    </body>
+</html>

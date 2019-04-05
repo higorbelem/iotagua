@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Index</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <style>
+
+            .branding{
+                font-size:17px;
+            }
+
+            .showcase{
+                background:url('img/showcase.jpg') no-repeat;
+                background-position:center;
+                height: 600px;
+                padding:140px 100px;
+                color:#fff;
+            }
+
+            .showcase h1{
+                font-size:40px;
+                font-weight:700;
+                text-transform: uppercase;
+            }
+
+            .showcase hr{
+                width:100px;
+                margin:auto;
+                border-width:3px;
+                border-color:#f44336;
+            }
+
+            .showcase p{
+                font-size:16px;
+                padding-bottom:20px;
+            }
+
+            .section{
+                padding:40px 0;
+            }
+
+            .section h2{
+                padding:0;
+                margin:0;
+            }
+
+            .section .fa{
+                font-size:50px;
+            }
+
+            .section img{
+                width:100%;
+            }
+
+            @media only screen and (max-width:600px){
+                body{
+                    margin-top:190px;
+                }
+
+                .showcase{
+                    height:400px;
+                    padding: 60px 0;
+                }
+            }
+            
+            #texto{
+                text-align:justify;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- NAVIGATION -->
+        <div class="w3-top">
+            <div class="w3-bar w3-black">
+                <span class="branding w3-bar-item w3-mobile">IOTAGUA</span>
+                <span class="w3-right w3-mobile">
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="">Home</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="../login.xhtml">Login</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="#servicos">Serviços</a>
+                </span>
+            </div>
+        </div>
+
+        <!-- SHOWCASE -->
+        <section class="showcase">
+            <div class="w3-container w3-center">
+                <h1 class="w3-text-shadow w3-animate-opacity">Vamos Começar</h1>
+                <hr>
+                <p class="w3-animate-opacity" id="texto">A Internet das Coisas (IoT) traz uma grande mudança para
+                    o cotidiano e bem-estar das pessoas. Sensores e plataformas
+                    ligados à Internet transformam a rotina dos usuários
+                    de forma transparente e gradativa. Esta aplicação propõe
+                    um sistema inteligente de monitoramento do consumo de
+                    água, associado à construção de uma base de dados para
+                    estudos analíticos dos valores armazenados..</p>
+                <button onclick="document.getElementById('start-modal').style.display = 'block'" class="w3-button w3-red w3-large w3-opacity">Cadastre-se</button>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="section w3-light-grey" id="servicos">
+            <div class="w3-container w3-center">
+                <div class="w3-row">
+                    <div class="w3-col m3">
+                        <i class="fa fa-comment w3-red w3-padding-small w3-round-xlarge"></i>
+                        <h3>Contate-nos</h3>
+                        <p>Atendimento rapido e eficáz</p>
+                    </div>
+                    <div class="w3-col m3">
+                        <i class="fa fa-search w3-red w3-padding-small w3-round-xlarge"></i>
+                        <h3>Buscar</h3>
+                        <p>Navegue pelo website</p>
+                    </div>
+                    <div class="w3-col m3">
+                        <i class="fa fa-cubes w3-red w3-padding-small w3-round-xlarge"></i>
+                        <h3>Construção de Software</h3>
+                        <p>Aplicações utilizando IOT </p>
+                    </div>
+                    <div class="w3-col m3">
+                        <i class="fa fa-cloud w3-red w3-padding-small w3-round-xlarge"></i>
+                        <h3>Hospedagem</h3>
+                        <p>Servidor 100% própio </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="w3-black w3-padding-xlarge w3-center">
+            <p>Jânio Carvalho, HígorBelem, Mateus Rodrigues &copy; 2018</p>
+        </footer>
+
+        <!-- MODAL -->
+        <div id="start-modal" class="w3-modal">
+            <div class="w3-modal-content">
+                <header class="w3-container w3-red">
+                    <span onclick="document.getElementById('start-modal').style.display = 'none'" class="w3-closebtn">&times;</span>
+                    <h2>Informe seus dados</h2>
+                </header>
+
+                <div class="w3-container">
+                    <form>
+                        <div class="w3-section">
+                            <label>Nome</label>
+                            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Name">
+                            <label>Username</label>
+                            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username">
+                            <label>Password</label>
+                            <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password">
+                            <label>Confirme Password</label>
+                            <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password">
+                            <button  class="w3-black w3-btn-block w3-section w3-padding">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+</html>

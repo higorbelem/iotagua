@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+
+            .branding{
+                font-size:17px;
+            }
+
+            .showcase{
+                background:url('page/img/showcase.jpg') no-repeat;
+                background-position:center;
+                height: 600px;
+                padding:140px 100px;
+                color:#fff;
+            }
+
+            .showcase h1{
+                font-size:40px;
+                font-weight:700;
+                text-transform: uppercase;
+            }
+
+            .showcase hr{
+                width:100px;
+                margin:auto;
+                border-width:3px;
+                border-color:#f44336;
+            }
+
+            .showcase p{
+                font-size:16px;
+                padding-bottom:20px;
+            }
+
+            .section{
+                padding:40px 0;
+            }
+
+            .section h2{
+                padding:0;
+                margin:0;
+            }
+
+            .section .fa{
+                font-size:50px;
+            }
+
+            .section img{
+                width:100%;
+            }
+
+            @media only screen and (max-width:600px){
+                body{
+                    margin-top:190px;
+                }
+
+                .showcase{
+                    height:400px;
+                    padding: 60px 0;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- NAVIGATION -->
+        <div class="w3-top">
+            <div class="w3-bar w3-black">
+                <span class="branding w3-bar-item w3-mobile">IOTAGUA</span>
+                <span class="w3-right w3-mobile">
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="home.xhtml">Principal</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="users.xhtml">Cadastro</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="alerts.xhtml">Alertas</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="sensors.xhtml">Sensores</a>
+                    <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="#{autenticadorBean.registraSaida()}">Logoff</a>
+                </span>
+            </div>
+        </div>
+
+        <!-- SHOWCASE -->
+        <section class="section w3-dark-grey w3-hover-opacity">
+            <div class="w3-container w3-center">
+                <i class="fa fa-home"></i>
+                <h2>Bem Vindo ao Home</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </section>
+
+
+
+        <!-- SECTION 2 -->
+        <section class="section w3-light-grey w3-hover-opacity">
+            <div class="w3-container w3-center">
+                <i class="fa fa-cog"></i>
+                <h2>Em construção...</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="w3-container">
+                <div class="w3-row-padding">
+                    <div class="w3-col m5">
+                        <img src="img/about.jpg"/>
+                    </div>
+                    <div class="w3-col m7">
+                        <button onclick="accFunction('what')" class="w3-btn-block w3-left-align">
+                            Conceito</button>
+
+                        <div id="what" class="w3-container w3-show">
+                            <h3>We Do It All</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+
+                        <button onclick="accFunction('who')" class="w3-btn-block w3-left-align">
+                            Implementação</button>
+
+                        <div id="who" class="w3-container w3-hide">
+                            <h3>We Are Acme</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+
+                        <button onclick="accFunction('where')" class="w3-btn-block w3-left-align">
+                            Resultados Alcançados</button>
+
+                        <div id="where" class="w3-container w3-hide">
+                            <h3>We Are Everywhere</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES HEADING -->
+        <section id="services" class="section w3-light-grey w3-hover-opacity">
+            <div class="w3-container w3-center">
+                <h1 class="w3-text-shadow">Outros serviços</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </section>
+
+
+
+        <!-- CONTACT HEADING -->
+        <section id="contact" class="section w3-dark-grey w3-hover-opacity">
+            <div class="w3-container w3-center">
+                <h1 class="w3-text-shadow">Em contrução...</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section">
+            <div class="w3-container">
+                <div class="w3-card-4">
+                    <div class="w3-container w3-dark-grey">
+                        <h2>Contate-nós</h2>
+                    </div>
+                    <form class="w3-container w3-padding-xlarge">
+                        <label class="w3-label">Nome</label>
+                        <input class="w3-input" type="text"/>
+                        <label class="w3-label">Email</label>
+                        <input class="w3-input" type="text"/>
+                        <label class="w3-input">Mensagem</label>
+                        <textarea class="w3-input w3-border" style="resize:none"></textarea>
+                        <br/>
+                        <button type="submit" class="w3-button">Enviar</button>
+                        <br/><br/>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="w3-black w3-padding-xlarge w3-center">
+            <p>Jânio Carvalho, Higor Belem, Mateus Rodrigues &copy; 2018</p>
+        </footer>
+        
+        
+    <script>
+      function accFunction(id) {
+          var x = document.getElementById(id);
+          if (x.className.indexOf("w3-show") == -1) {
+              x.className += " w3-show";
+          } else {
+              x.className = x.className.replace(" w3-show", "");
+          }
+      }
+      </script>
+    </body>
+</html>

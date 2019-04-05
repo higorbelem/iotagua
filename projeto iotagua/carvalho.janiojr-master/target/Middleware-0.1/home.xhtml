@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Home</title>
+    </h:head>
+    <h:body>
+        <p:growl id="mensagem" />
+        <h:form id="formListagem">
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" header="Middleware" resizable="true" >
+                    <div id="top">
+                        <ui:insert>
+                            <ui:include src="template/header.xhtml"/>
+                        </ui:insert>
+                    </div>
+                </p:layoutUnit>
+
+
+                <p:layoutUnit position="west" size="238" header="Administrativo" resizable="true" >
+                   <div id="left">
+                        <ui:insert>
+                            <ui:include src="template/west.xhtml"/>
+                        </ui:insert>
+                    </div>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="east" size="350" header="Avisos" resizable="true" closable="true" collapsible="true" effect="drop">
+                     <div id="right">
+                        <ui:insert>
+                            <ui:include src="template/east.xhtml"/>
+                        </ui:insert>
+                    </div>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    //page code
+                </p:layoutUnit>
+
+
+            </p:layout>
+        </h:form>
+    </h:body>
+</html>
