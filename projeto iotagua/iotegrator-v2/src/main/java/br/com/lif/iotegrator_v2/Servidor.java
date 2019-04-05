@@ -30,7 +30,7 @@ public class Servidor {
 		//URI uri = URI.create("http://0.0.0.0:9998/");
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
 		//server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("src/main/webapp","/"));
-		//server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("iotegrator"),"/");
+		//server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("iotegrator"),"/"); 
 	
 		return server;
 	}
