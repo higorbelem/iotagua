@@ -165,7 +165,7 @@ void loop() {
     Serial.println(json);
   
     HTTPClient http;
-    http.begin("192.168.71.127",8000,"/iotegrator");
+    http.begin("192.168.43.78",8000,"/iotegrator");
     http.addHeader("Content-Type", "application/json", false, true);
   
     int httpCode = http.POST(json);

@@ -26,7 +26,7 @@ public class Servidor {
 		
 		ResourceConfig config = new ResourceConfig();
 		config.packages("br.com.lif.iotegrator_v2");
-		URI uri = URI.create("http://192.168.0.106:8000/");
+		URI uri = URI.create("http://192.168.43.78:8000/");
 		//URI uri = URI.create("http://0.0.0.0:9998/");
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
 		//server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("src/main/webapp","/"));
