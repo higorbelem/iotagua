@@ -2,7 +2,9 @@ package br.com.lif.iotegrator_v2;
 
 import java.io.IOException;
 import java.net.URI;
+
 import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.grizzly.http.server.NetworkListener;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -26,11 +28,17 @@ public class Servidor {
 		
 		ResourceConfig config = new ResourceConfig();
 		config.packages("br.com.lif.iotegrator_v2");
-		URI uri = URI.create("http://192.168.43.78:8000/");
+		
+		URI uri = URI.create("http://192.168.0.105:8000/");
 		//URI uri = URI.create("http://0.0.0.0:9998/");
+		
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
+		server.addListener(new NetworkListener("local listener","localhost",8000));
 		//server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("src/main/webapp","/"));
 		//server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("iotegrator"),"/"); 
+		
+		StaticHttpHandler staticHttpHandler = new StaticHttpHandler("src/main/webapp");
+		server.getServerConfiguration().addHttpHandler(staticHttpHandler, "/");
 	
 		return server;
 	}
