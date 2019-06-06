@@ -1,0 +1,41 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  margin-top: 10px;
+  font-family: sans-serif;
+  background: #1f2833;
+  word-wrap:break-word;
+}
+
+#main {
+  margin-left: 250px;
+}
+
+#cabecalho{
+	color: white;
+	width: 600px;
+	margin: 10px auto;
+	background: rgba(255,255,255,0.3);
+	padding: 10px;
+	text-align: center;
+}
+
+#configs {
+	width: 600px;
+	margin: 0px auto;
+	color: white;
+}
+
+#configs h3{
+	display: inline-block;
+	padding-top: 15px;
+	padding-bottom: : 15px;
+}
+
+#configs label, #configs select{
+	margin-bottom: 10px;
+
+}

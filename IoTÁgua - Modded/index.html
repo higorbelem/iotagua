@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>IoTÁgua - Início</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/inicio-style.css">
+  <link rel="stylesheet" type="text/css" href="css/sidenav.css">
+  <link rel="stylesheet" type="text/css" href="css/medidor.css">
+</head>
+
+<body onload='draw(0);'>
+
+  	<div class="sidenav" id="mySidenav"> <!-- Inicio Sidenav -->
+
+        <h2>MENU</h2>
+      	<a href="index.html">Painel Administrativo</a>
+        <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+        	<a href="#">SNA</a>
+          <a href="#">SFA</a>
+          <a href="#">Sensor de Temperatura</a>
+        </div>
+        <button class="dropdown-btn">Configurações<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="crud-usuario.html">Usuários</a>
+          <a href="crud-sensores.html">Sensores</a>
+          <a href="configuracao-sistema.html">Sistema</a>
+        </div>
+
+    </div> <!-- Fim Sidenav -->
+
+    
+    <section>
+
+        <div id="main" > <!-- Inicio MAIN -->
+
+          <!-- Cabeçalho -->
+           <div class="cabecalho"><h1>IOTÁGUA - Sistema Inteligente de<br>Gerenciamento de Consumo de Água</h1></div>
+
+          <div id="medicoes-sensores"> <!-- Inicio area de medições -->
+
+          <h3>Nível de reservatório</h3>
+
+          <div id="medidor"><!-- Inicio medidor -->
+            <div class="container">
+              <div class="guage-holder">    
+                <div class="circle-mask">
+                  <div class="circle">
+                    <div class="circle-inner"></div> 
+                  </div>
+                </div>
+                <div class="percentage">0 %</div>
+                <a id="refresh">Atualizar</a>
+                <!-- <input type="text" class="text-box" placeholder="0%" />   -->
+                <div class="gauge-copy"></div>
+              </div>
+            </div>
+         </div><!-- Fim medidor -->
+         <div id="area-esquerda"> <!-- Inicio area esquerda -->
+              
+                <ul>
+                  <li> Sensor de Fluxo 1:  <span >0 ml/s</span></li>
+                  <li> Sensor de Fluxo 2:  <span >0 ml/s</span></li>
+                </ul>
+          
+
+           </div> <!-- Fim area esquerda -->
+           <div id="area-direita"> <!-- Inicio area direita -->
+
+              <ul>
+                <li>Temperatura: </span> <span id="temp">0°C</span> </li>
+                <li>Ph: <span id="ph">Não cadastrado</span></li>
+                <li>Relé: <button>Ligado</button></li>
+                <li>Solenóide: <button>Ligado</button></li>
+              </ul>
+               
+           </div> <!-- Fim area direita -->
+
+        </div> <!-- Fim da área de medições -->
+
+        </div> <!-- Fim MAIN -->
+        
+        <div id="registro-funcionamento"> <!-- Inicio da área de registros -->
+          
+          <h3>Registros de alertas: </h3>
+
+          <div class="content">
+
+            <div class="alertas">
+                29/05/2019, 23:00, Criação desta pagina
+            </div>
+
+            <div class="alertas">
+                29/05/2019, 23:30, Modiicação da página
+            </div>
+
+            <div class="alertas">
+                30/05/2019, 00:00, Melhoria do sistema
+            </div>
+
+            </div>
+
+           <!-- <button id="jquery"> JQUERY </button> -->
+
+        </div> <!-- Fim da área de regristros -->  
+    </section>
+
+</body>
+
+<!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script> -->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/medidor.js"></script>
+<script type="text/javascript" src="js/sidebar-body.js"></script>
+
+</html>

@@ -1,0 +1,160 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  margin-top: 10px;
+  font-family: sans-serif;
+  background: #1f2833;
+  word-wrap:break-word;
+}
+
+.cabecalho {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+#main {
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+#medicoes-sensores {
+  width: 500px;
+  margin: 0px auto;
+}
+
+#medicoes-sensores h3 {
+  text-align: center;
+  color: white;
+  background-color: rgba(255,255,255,.3);
+  padding: 10px;
+}
+
+#area-esquerda span, #area-direita span{
+  font-family: sans-serif;  
+  font-size: large;
+}
+
+#area-esquerda button, #area-direita button{
+  border:0;
+  background: none;
+  display: inline;
+  text-align: center;
+  /*border: 1px solid #ad1457;*/
+  padding: 6px 10px;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+#area-esquerda button:hover, #area-direita button:hover{
+  background: #ad1457;
+}
+
+#area-esquerda {
+  float: left;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.2);
+  /*overflow: scroll;*/
+  width: 45%;
+}
+
+#area-direita {
+  background-color: rgba(255,255,255,0.2);
+  float: right;
+  padding: 10px;
+  border-radius: 5px;
+  width: 45%;
+}
+
+#registro-funcionamento {
+  clear: both;
+  /*border: 1px solid #ccc;*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgba(0,0,0,.3);
+}
+
+#registro-funcionamento > .content{
+  padding: 10px;
+  font-family: cursive;
+  /*font-weight: bold;*/
+}
+
+#area-esquerda span, #area-direita span {
+  color: white;
+  font-size: 10px;;
+}
+
+#area-esquerda li, #area-direita li{
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+}
+
+.divisor {
+  display: inline;
+}
+
+#medidor {
+  margin-bottom: 20px;
+}
+
+.alertas {
+  color: white;
+  font-size: small;
+}
+
+#registro-funcionamento h3{
+  color: white;
+  background: rgba(255,255,255,.3);
+  font-size: large;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+#registro-funcionamento div {
+  padding-left: 5px;
+}
+
+@media only screen and (max-width: 1154px){
+
+  .sidenav{
+    display: none;
+  }
+
+  #main{
+    margin-left: 0;
+    margin-right: 0;
+    left: 15% ;
+    position: absolute;
+  }
+
+
+}
+
+#refresh{
+
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+}
+
+
+#refresh:hover{
+
+  background-color: rgba(255,255,255,0.4);
+  cursor: pointer;
+
+}

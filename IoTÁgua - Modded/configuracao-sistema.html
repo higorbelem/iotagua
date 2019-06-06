@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Configuração - IoTÁgua</title>
+	<meta charset="utf-8">
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 	<link rel="stylesheet" type="text/css" href="css/sidenav.css">
+ 	<link rel="stylesheet" type="text/css" href="css/config-style.css">
+ 	<link rel="stylesheet" type="text/css" href="css/switchs.css">
+</head>
+
+<body>
+
+<div class="sidenav" id="mySidenav"> <!-- Inicio Sidenav -->
+    <h2>MENU</h2>
+  	<a href="index.html">Painel Administrativo</a>
+    <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+    	<a href="#">SNA</a>
+      	<a href="#">SFA</a>
+      	<a href="#">Sensor de Temperatura</a>
+    </div>
+    <button class="dropdown-btn">Configurações<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="crud-usuario.html">Usuários</a>
+        <a href="crud-sensores.html">Sensores</a>
+      	<a href="configuracao-sistema.html">Sistema</a>
+	</div>
+</div> <!-- Fim Sidenav -->
+
+<div id="main">
+	
+	<div id="cabecalho">
+		<h2>Configurações: </h2>
+	</div>
+	<div id="configs"> <!-- Inicio da area de configurações -->
+		<h3>Mostrar notificações de vazamentos: </h3>
+		<label class="switch">
+		  <input type="checkbox">
+		  <span class="slider round"></span>
+		</label>
+		<hr>
+		<h3>Gravar log em arquivo: </h3>
+		<label class="switch">
+		  <input type="checkbox">
+		  <span class="slider round"></span>
+		</label> <br>
+		<hr>
+		<h3>Atualizar dados à cada: </h3> 
+		<select>
+			<option>30 segundos</option>
+			<option>1 minuto</option>
+			<option>3 minutos</option>
+			<option>5 minutos</option>
+			<option>10 minutos</option>
+		</select>
+		<hr>
+	</div> <!-- Fim da area de configurações -->
+
+</div>
+
+<script type="text/javascript" src="js/sidebar-body.js"></script>
+
+</body>
+
+</html>

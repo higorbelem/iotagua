@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sensores</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/sidenav.css">
+  <link rel="stylesheet" type="text/css" href="css/modal.css">
+  <link rel="stylesheet" type="text/css" href="css/crud.css">
+</head>
+
+<body onload='draw(0);'>
+
+  	<div class="sidenav" id="mySidenav"> <!-- Inicio Sidenav -->
+
+        <h2>MENU</h2>
+      	<a href="index.html">Painel Administrativo</a>
+        <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+        	<a href="#">SNA</a>
+          <a href="#">SFA</a>
+          <a href="#">Sensor de Temperatura</a>
+        </div>
+        <button class="dropdown-btn">Configurações<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="crud-usuario.html">Usuários</a>
+          <a href="crud-sensores.html">Sensores</a>
+          <a href="configuracao-sistema.html">Sistema</a>
+        </div>
+
+    </div> <!-- Fim Sidenav -->
+    
+<div id="main" > <!-- Inicio MAIN -->
+
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>CRUD DE SENSORES</p>
+    </div>
+
+</div>
+
+<div id="cabecalho">
+  <h2>Configurações de Sensores</h2>
+</div>
+
+<div id="area-listagem">
+  <div id="sensores">
+    <ul>
+      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+    </ul>
+    <button id="myBtn">Novo</button>
+  </div>
+</div>
+    
+</div>
+
+</body>
+
+<!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script> -->
+
+<script type="text/javascript" src="js/sidebar-body.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+
+</html>

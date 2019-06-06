@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Usuários e Sensores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/crud2.css">
+
+
+</head>
+
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+  <h4>Sensores</h4>
+  <div class="row">
+    <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="sensor" type="email" class="validate">
+            <label for="sensor">Sensor</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="location" type="email" class="validate">
+            <label for="location">Location</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+  </div>
+</div>
+<!-- Modal Structure -->
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+  <h4>Usuários</h4>
+  <div class="row">
+    <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="sensor" type="email" class="validate">
+            <label for="sensor">Sensor</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="location" type="email" class="validate">
+            <label for="location">Location</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+  </div>
+</div>
+<!-- Modal Structure -->
+          
+<!-- Inicio Sidenav -->
+ <div> 
+
+    <ul id="mySidenav" class="sidenav sidenav-fixed">
+      <li><a href="#user">Usuários</a></li>
+      <li><a href="#sensores">Sensores</a></li>
+    </ul>
+          
+</div>
+<!-- Fim Sidenav -->
+
+<body onload='draw(0);'>
+
+
+
+    <main id="main">
+    
+        <div id="user">
+          <ul>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+            </ul>
+            <a style="font-size: 25px !important; " class="waves-effect waves-light btn modal-trigger" href="#modal2">+</a>
+        </div>
+        <div id="sensores">
+            <ul>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+                <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
+            </ul>
+            <a style="font-size: 25px !important;" class="waves-effect waves-light btn modal-trigger" href="#modal1">+</a>
+        </div>
+
+
+    </main>
+
+</body>
+
+<!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script> -->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/medidor.js"></script>
+<script type="text/javascript" src="js/sidebar-body.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/crud.js"></script>
+
+</html>
