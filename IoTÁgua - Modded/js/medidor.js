@@ -1,4 +1,49 @@
+﻿function getNivel(){
+  $.ajax({
+    method: 'post',
+    url: 'php/getNivel.php',
+    data: {
+      
+    },
+    success: function(data) {
+      if (data == '') {
+        $('.circle-inner, .gauge-copy').css({
+          'transform' : 'rotate(-45deg)' 
+        });
+        $('.gauge-copy').css({
+          'transform' : 'translate(-50%, -50%) rotate(0deg)'
+        });
+        $('.percentage').text('0 %');
+      } else if(data >= 0 && data <= 100) {
+        var dVal = data;
+        var newVal = dVal * 1.8 - 45;
+        $('.circle-inner, .gauge-copy').css({
+          'transform' : 'rotate(' + newVal + 'deg)' 
+        });
+        $('.gauge-copy').css({
+          'transform' : 'translate(-50%, -50%) rotate(' + dVal * 1.8 + 'deg)'
+        });
+        $('.percentage').text(dVal + ' %');
+      } else {
+        $('.percentage').text('Invalid input value');
+      }
+    }
+  });
+}
+
 $(function(){
+  
+  window.setInterval(function(){
+    getNivel();
+  }, 1000);
+
+  getNivel();
+  $('.refresh').on('click',function(){
+    getNivel();
+  });
+});
+
+/*$(function(){
   $('.text-box').keyup(function(){
     if ($('.text-box').val() == '') {
       $('.circle-inner, .gauge-copy').css({
@@ -50,4 +95,4 @@ $('#jquery').on('click',function(){
     }); 
 
 
-});
+});*/

@@ -29,7 +29,7 @@ public class Servidor {
 		ResourceConfig config = new ResourceConfig();
 		config.packages("br.com.lif.iotegrator_v2");
 		
-		URI uri = URI.create("http://192.168.0.105:8000/");
+		URI uri = URI.create("http://192.168.0.102:8000/");
 		//URI uri = URI.create("http://0.0.0.0:9998/");
 		
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
@@ -37,8 +37,8 @@ public class Servidor {
 		//server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("src/main/webapp","/"));
 		//server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("iotegrator"),"/"); 
 		
-		StaticHttpHandler staticHttpHandler = new StaticHttpHandler("src/main/webapp");
-		server.getServerConfiguration().addHttpHandler(staticHttpHandler, "/");
+		//StaticHttpHandler staticHttpHandler = new StaticHttpHandler("src/main/webapp");
+		//server.getServerConfiguration().addHttpHandler(staticHttpHandler, "/");
 	
 		return server;
 	}
