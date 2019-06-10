@@ -65,6 +65,7 @@ public class MainResources {
 			post = gson.fromJson(conteudo, PostFormat.class);
 		}catch (Exception e) {
 			System.out.println(e.toString());
+			System.exit(0);
 		}
 				
 		for(int i = 0 ; i < post.getMedicoes().size() ; i++) {
