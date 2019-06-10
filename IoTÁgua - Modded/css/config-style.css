@@ -12,6 +12,7 @@ body{
 
 #main {
   margin-left: 250px;
+  float: none;
 }
 
 #cabecalho{
@@ -27,15 +28,19 @@ body{
 	width: 600px;
 	margin: 0px auto;
 	color: white;
+	float: none;
 }
 
 #configs h3{
 	display: inline-block;
-	padding-top: 15px;
+	padding-top: 10px;
 	padding-bottom: : 15px;
 }
 
 #configs label, #configs select{
 	margin-bottom: 10px;
+}
 
+.lista-config {
+	float: right;
 }
