@@ -67,26 +67,22 @@ public class MainResources {
 			System.out.println(e.toString());
 			System.exit(0);
 		}
+		
+		if(post.getTipo() == 'r') {
+			
+		}else if(post.getTipo() == 'w'){
+			
+		}else if(post.getTipo() == 'c'){
+			try {
+				String resp = sendPostGetSensores(post.getIds());
+				return Response.accepted(resp).build();
+			}catch(Exception e) {
 				
-		for(int i = 0 ; i < post.getMedicoes().size() ; i++) {
+			}
+		}
+				
+		/*for(int i = 0 ; i < post.getMedicoes().size() ; i++) {
 			switch (post.getMedicoes().get(i).getIdv()) {
-			/*case 1: //dht11
-				
-				if(post.getTipo() == 'r') {
-					
-				}else {
-					Dht11 dht11 = new Dht11(post.getMedicoes().get(i).getValor(),post.getMedicoes().get(1).getValor(),0);
-					dht11.setNome("asd");
-					dht11.setLocal("adad");
-					dht11.setSensasaoCalor(1);
-						            
-					new Dht11DAO().add(dht11);
-					URI uri = URI.create("/dht11/"+dht11.getId());
-					System.out.println(dht11);
-					return Response.created(uri).build();
-				}
-				
-				break;*/
 			case 1://fluxo1 vermeho
 				
 				if(post.getTipo() == 'r') {
@@ -129,7 +125,7 @@ public class MainResources {
 				
 				break;
 			}
-		}
+		}*/
 		
 		return null;
 	}
@@ -149,7 +145,7 @@ public class MainResources {
 	    });
 	}*/
 	
-	private void sendPost(double valor) throws Exception {
+	private void sendPostNivel(double valor) throws Exception {
 
 		String url = "http://iotagua/IoT%c3%81gua%20-%20Modded/php/setNivel.php";
 
@@ -179,5 +175,36 @@ public class MainResources {
 		
 		System.out.println(result.toString());
 
+	}
+	
+	private String sendPostGetSensores(int idSistema) throws Exception {
+
+		String url = "http://iotagua/IoT%c3%81gua%20-%20Modded/php/getSensores.php";
+
+		HttpClient client = HttpClientBuilder.create().build();
+		HttpPost post = new HttpPost(url);
+
+		// add header
+		//post.setHeader("User-Agent", USER_AGENT);
+
+		List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+		urlParameters.add(new BasicNameValuePair("id-sistema", "" + idSistema));
+
+		post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+		HttpResponse response = client.execute(post);
+		System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
+
+		BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+		StringBuffer result = new StringBuffer();
+		String line = "";
+		while ((line = rd.readLine()) != null) {
+			result.append(line);
+		}
+		
+		System.out.println(result.toString());
+		
+		return result.toString();
 	}
 }
