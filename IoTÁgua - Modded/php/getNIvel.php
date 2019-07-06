@@ -1,7 +1,7 @@
 <?php
 	include_once 'conexao.php';
 	
-	$sql1 = $dbcon -> query("SELECT * FROM `sensor-nivel` WHERE ID = (SELECT MAX(ID) FROM `sensor-nivel`)");
+	$sql1 = $dbcon -> query("SELECT `valor` FROM `medicao` WHERE `id` = (SELECT MAX(`id`) FROM `medicao`)");
 
 	if(mysqli_num_rows($sql1) > 0){
         $dados = $sql1->fetch_array();

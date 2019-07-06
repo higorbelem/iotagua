@@ -6,33 +6,39 @@
 	$sql1 = $dbcon -> query("SELECT * FROM `sensor` WHERE `id-sistema` = $id_sistema");
 
 	if(mysqli_num_rows($sql1) > 0){
-        echo "[";
+        $jsonString = "";
+
+        $jsonString .= "[";
         while($dados = $sql1->fetch_array()){
-            echo "{";
+            $jsonString .= "{";
 
-            echo "\"id\":\"";
-            echo $dados['id'];
-            echo "\",";
+            $jsonString .= "\"id\":\"";
+            $jsonString .= $dados['id'];
+            $jsonString .= "\",";
 
-            echo "\"nome\":\"";
-            echo $dados['nome'];
-            echo "\",";
+            $jsonString .= "\"nome\":\"";
+            $jsonString .= $dados['nome'];
+            $jsonString .= "\",";
 
-            echo "\"dataInicioOperacoes\":\"";
-            echo $dados['data-inicio-operacoes'];
-            echo "\",";
+            $jsonString .= "\"dataInicioOperacoes\":\"";
+            $jsonString .= $dados['data-inicio-operacoes'];
+            $jsonString .= "\",";
 
-            echo "\"local\":\"";
-            echo $dados['local'];
-            echo "\",";
+            $jsonString .= "\"local\":\"";
+            $jsonString .= $dados['local'];
+            $jsonString .= "\",";
 
-            echo "\"pinos\":";
-            echo $dados['pinos'];
+            $jsonString .= "\"pinos\":";
+            $jsonString .= $dados['pinos'];
             
-            echo "},";
+            $jsonString .= "},";
         }
 
-        echo "]";
+        $jsonString = rtrim($jsonString, ',');
+
+        $jsonString .= "]";
+
+        echo $jsonString;
 	}else{
 		echo "erro";
     }

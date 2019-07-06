@@ -71,7 +71,20 @@ public class MainResources {
 		if(post.getTipo() == 'r') {
 			
 		}else if(post.getTipo() == 'w'){
-			
+			for(int i = 0 ; i < post.getMedicoes().size() ; i++) {
+				try {
+					sendPostNivel(post.getMedicoes().get(i).getValor(),post.getMedicoes().get(i).getIdv());
+					return Response.accepted().build();
+				}catch(Exception e){
+					System.out.println(e.toString());		
+				}
+				break;
+			}
+			/*try {
+				sendPostNivel(post.);
+			}catch(Exception e){
+				System.out.println(e.toString());		
+			}*/
 		}else if(post.getTipo() == 'c'){
 			try {
 				String resp = sendPostGetSensores(post.getIds());
@@ -145,7 +158,7 @@ public class MainResources {
 	    });
 	}*/
 	
-	private void sendPostNivel(double valor) throws Exception {
+	private void sendPostNivel(double valor, int idSensor) throws Exception {
 
 		String url = "http://iotagua/IoT%c3%81gua%20-%20Modded/php/setNivel.php";
 
@@ -157,6 +170,7 @@ public class MainResources {
 
 		List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
 		urlParameters.add(new BasicNameValuePair("valor", "" + valor));
+		urlParameters.add(new BasicNameValuePair("id-sensor", "" + idSensor));
 
 		post.setEntity(new UrlEncodedFormEntity(urlParameters));
 
