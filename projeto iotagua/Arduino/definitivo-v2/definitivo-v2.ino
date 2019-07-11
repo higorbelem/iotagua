@@ -22,10 +22,10 @@
 //wifi  
   #include <ESP8266WiFiMulti.h>
   ESP8266WiFiMulti WiFiMulti;
-  //#define SSID_WIFI "Higor"
-  //#define PASSPHRASE_WIFI "higor1234"
-  #define SSID_WIFI "BatCaverna-2.4GHz"
-  #define PASSPHRASE_WIFI "kikathecat"
+  #define SSID_WIFI "Higor"
+  #define PASSPHRASE_WIFI "higor1234"
+  //#define SSID_WIFI "BatCaverna-2.4GHz"
+  //#define PASSPHRASE_WIFI "kikathecat"
 //wifi
 
 //post
@@ -49,8 +49,8 @@ typedef struct JsonFormat{
   Var* vars;
 }JsonFormat;
 
-int contaPulso1, contaPulso2;
-float SFA , SFA2;
+int contaPulso;
+float SFA;
 JsonFormat jsonFormat;
 Var* var;
 bool configFinalizado = false;
@@ -98,6 +98,8 @@ String criaJson(JsonFormat* jsonFormat){
     JsonObject arrayObject = medicoes.createNestedObject();
     arrayObject["idv"] = jsonFormat->vars[i].idv;
     arrayObject["valor"] = jsonFormat->vars[i].val;
+
+    Serial.printf("id: %d, valor: %f\n", jsonFormat->vars[i].idv, jsonFormat->vars[i].val);
   }
 
   String teste = doc.as<String>();
@@ -114,7 +116,7 @@ String sendHttp(JsonFormat *jsonFormat){
   Serial.println(json);
   
   HTTPClient http;
-  http.begin("192.168.0.105",8000,"/iotegrator");
+  http.begin("192.168.43.78",8000,"/iotegrator");
   http.addHeader("Content-Type", "application/json", false, true);
 
   int httpCode = http.POST(json);
@@ -131,6 +133,30 @@ String sendHttp(JsonFormat *jsonFormat){
   http.end();
   
   return payload;
+}
+
+int convertPin(String pin){
+  if(pin.equals("D0")){
+    return 16;
+  }else if(pin.equals("D1")){
+    return 5;
+  }else if(pin.equals("D2")){
+    return 4;
+  }else if(pin.equals("D3")){
+    return 0;
+  }else if(pin.equals("D4")){
+    return 2;
+  }else if(pin.equals("D5")){
+    return 14;
+  }else if(pin.equals("D6")){
+    return 12;
+  }else if(pin.equals("D7")){
+    return 13;
+  }else if(pin.equals("D8")){
+    return 15;
+  }else{
+    return -1;
+  }
 }
 
 void setup() {
@@ -203,11 +229,17 @@ void loop() {
             if(nome.indexOf("nivel") >= 0){
               //Serial.println(jsonDoc[i]["pinos"][0]["pino1"].as<char*>());
               
-              int pTrigger = jsonDoc[i]["pinos"][0]["trigger"].as<uint8_t>();
-              int pEcho = jsonDoc[i]["pinos"][1]["echo"].as<uint8_t>();
+              uint8_t pTrigger = convertPin(jsonDoc[i]["pinos"][0]["trigger"].as<char*>());
+              uint8_t pEcho = convertPin(jsonDoc[i]["pinos"][1]["echo"].as<char*>());
               
               pinMode(pTrigger, OUTPUT);
               pinMode(pEcho, INPUT); 
+            }else if(nome.indexOf("fluxo") >= 0){
+
+              uint8_t pino_fluxo = convertPin(jsonDoc[i]["pinos"][0]["fluxo"].as<char*>());
+                            
+              pinMode(pino_fluxo,INPUT_PULLUP);
+              attachInterrupt(digitalPinToInterrupt(pino_fluxo), incpulso, RISING); 
             }
           }
         }
@@ -239,9 +271,11 @@ void loop() {
         if(nome.indexOf("nivel") >= 0){
           long duration, distance;
 
-          int pTrigger = jsonDoc[i]["pinos"][0]["trigger"].as<uint8_t>();
-          int pEcho = jsonDoc[i]["pinos"][1]["echo"].as<uint8_t>();
-      
+          uint8_t pTrigger = convertPin(jsonDoc[i]["pinos"][0]["trigger"].as<char*>());
+          uint8_t pEcho = convertPin(jsonDoc[i]["pinos"][1]["echo"].as<char*>());
+          
+          //Serial.printf("trigger: (%d, %s) , echo: (%d, %s)\n", pTrigger, jsonDoc[i]["pinos"][0]["trigger"].as<char*>(), pEcho, jsonDoc[i]["pinos"][1]["echo"].as<char*>());
+          
           digitalWrite(pTrigger, LOW);
           delayMicroseconds(2);
           digitalWrite(pTrigger, HIGH);
@@ -253,6 +287,23 @@ void loop() {
           
           var[i].idv = jsonDoc[i]["id"].as<int>();
           var[i].val = distance;
+          
+          //Serial.printf("2trigger: %d , echo: %d\n", pTrigger, pEcho);
+          //Serial.printf("Id: %d , valor: %d\n", jsonDoc[i]["id"].as<int>(), distance);
+        }else if(nome.indexOf("fluxo") >= 0){
+          //Serial.printf("quant: %d", jsonFormat.nVarInt);
+          //Serial.printf("Id: %d\n", jsonDoc[i]["id"].as<int>());
+          contaPulso = 0;
+        
+          sei();        //Habilita interrupção
+          delay (1000); //Aguarda 1 segundo
+          cli();   
+        
+          SFA  = contaPulso / 5.5; //Converte para L/min
+            
+          var[i].idv = jsonDoc[i]["id"].as<int>();
+          var[i].val = SFA; 
+               
         }
         
       }
@@ -334,15 +385,13 @@ void loop() {
     }
     delay (1000);*/
   }
-}
-}
-
-void incpulso1 ()
-{ 
-    contaPulso1++; //Incrementa a variável de contagem dos pulsos
+  }else{
+    Serial.println("Não conseguiu conectar ao wifi, tentando novamente...");
+    delay(1000);
+  }
 }
 
-void incpulso2 ()
+void incpulso ()
 { 
-    contaPulso2++; //Incrementa a variável de contagem dos pulsos
+    contaPulso++; //Incrementa a variável de contagem dos pulsos
 }
