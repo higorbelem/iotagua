@@ -72,14 +72,17 @@ public class MainResources {
 			
 		}else if(post.getTipo() == 'w'){
 			for(int i = 0 ; i < post.getMedicoes().size() ; i++) {
+				System.out.println("size" + post.getMedicoes().size());
+				System.out.println("valor" + post.getMedicoes().get(i).getValor());
+				System.out.println("id" + post.getMedicoes().get(i).getIdv());
 				try {
 					sendPostNivel(post.getMedicoes().get(i).getValor(),post.getMedicoes().get(i).getIdv());
-					return Response.accepted().build();
 				}catch(Exception e){
-					System.out.println(e.toString());		
+					System.out.println(e.toString());	
+					return Response.serverError().build();
 				}
-				break;
 			}
+			return Response.accepted().build();
 			/*try {
 				sendPostNivel(post.);
 			}catch(Exception e){

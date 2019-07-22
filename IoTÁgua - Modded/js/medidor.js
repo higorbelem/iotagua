@@ -1,32 +1,45 @@
 ﻿function getNivel(){
   $.ajax({
     method: 'post',
-    url: 'php/getNivel.php',
+    //url: 'php/getNivel.php',
+    url: 'php/getValorSensores.php',
     data: {
-      
+      "id-sistema": "1"
     },
     success: function(data) {
-      if (data == '') {
-        $('.circle-inner, .gauge-copy').css({
-          'transform' : 'rotate(-45deg)' 
-        });
-        $('.gauge-copy').css({
-          'transform' : 'translate(-50%, -50%) rotate(0deg)'
-        });
-        $('.percentage').text('0 %');
-      } else if(data >= 0 && data <= 100) {
-        var dVal = data;
-        var newVal = dVal * 1.8 - 45;
-        $('.circle-inner, .gauge-copy').css({
-          'transform' : 'rotate(' + newVal + 'deg)' 
-        });
-        $('.gauge-copy').css({
-          'transform' : 'translate(-50%, -50%) rotate(' + dVal * 1.8 + 'deg)'
-        });
-        $('.percentage').text(dVal + ' %');
-      } else {
-        $('.percentage').text('Invalid input value');
-      }
+      var obj = JSON.parse(data);
+
+      $('.sensores-direita').empty();
+
+      obj.forEach(function(sensor) {
+        if(sensor.nome.includes("nivel")){
+          var valor = parseFloat(sensor.medicao.ultimaMedicao);
+          if (valor == 0) {
+            $('.circle-inner, .gauge-copy').css({
+              'transform' : 'rotate(-45deg)' 
+            });
+            $('.gauge-copy').css({
+              'transform' : 'translate(-50%, -50%) rotate(0deg)'
+            });
+            $('.percentage').text('0 %');
+          } else if(valor >= 0 && valor <= 100) {
+            var dVal = valor;
+            var newVal = dVal * 1.8 - 45;
+            $('.circle-inner, .gauge-copy').css({
+              'transform' : 'rotate(' + newVal + 'deg)' 
+            });
+            $('.gauge-copy').css({
+              'transform' : 'translate(-50%, -50%) rotate(' + dVal * 1.8 + 'deg)'
+            });
+            $('.percentage').text(dVal + ' %');
+          } else {
+            $('.percentage').text('Invalid input value');
+          }
+        }else{
+          $('.sensores-direita').append("<li>" + sensor.nome + ": " + sensor.medicao.ultimaMedicao + "<li>");   
+        }
+        //$('.sensores-direita').append(sensor.nome + ": " + sensor.medicao.valor + "\n");        
+      });
     }
   });
 }

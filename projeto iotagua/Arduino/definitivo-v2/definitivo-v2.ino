@@ -7,11 +7,10 @@
 //sensor de nivel com utrassonic
 
 //sensor de temperatura
-  //#include "OneWire.h"
-  //#include "DallasTemperature.h"
-  //OneWire oneWire(pino_temperatura);
-  //DallasTemperature sensors(&oneWire);
-  //float Celcius=0;
+  #include "OneWire.h"
+  #include "DallasTemperature.h"
+  OneWire oneWire(-1);
+  DallasTemperature sensors(&oneWire);
 //sensor de temperatura
 
 //json
@@ -49,7 +48,8 @@ typedef struct JsonFormat{
   Var* vars;
 }JsonFormat;
 
-int contaPulso;
+int teste = 0;
+int contaPulso1,contaPulso2;
 float SFA;
 JsonFormat jsonFormat;
 Var* var;
@@ -82,7 +82,7 @@ bool desserializaJson(String json){
 String criaJson(JsonFormat* jsonFormat){
   const int bufferSize = JSON_ARRAY_SIZE(jsonFormat->nVarInt) + jsonFormat->nVarInt * JSON_OBJECT_SIZE(2) + JSON_OBJECT_SIZE(8);
 
-  StaticJsonDocument<300> doc;
+  StaticJsonDocument<500> doc;
 
   doc["idm"] = jsonFormat->idm;
   doc["ids"] = jsonFormat->ids;
@@ -162,6 +162,8 @@ int convertPin(String pin){
 void setup() {
   Serial.begin(115200);
 
+  cli();   
+
   /*strlcpy(jsonFormat.idm, "0", 4);
   strlcpy(jsonFormat.ids, "1", 4);
   strlcpy(jsonFormat.idt, "2", 16);
@@ -239,7 +241,17 @@ void loop() {
               uint8_t pino_fluxo = convertPin(jsonDoc[i]["pinos"][0]["fluxo"].as<char*>());
                             
               pinMode(pino_fluxo,INPUT_PULLUP);
-              attachInterrupt(digitalPinToInterrupt(pino_fluxo), incpulso, RISING); 
+              if(i == 4){
+                attachInterrupt(digitalPinToInterrupt(pino_fluxo), incpulso1, RISING); 
+              }else{
+                attachInterrupt(digitalPinToInterrupt(pino_fluxo), incpulso2, RISING); 
+              }
+            }else if(nome.indexOf("temperatura") >= 0){
+
+              uint8_t pino_temperatura = convertPin(jsonDoc[i]["pinos"][0]["temperatura"].as<char*>());
+                            
+              oneWire = OneWire(pino_temperatura);
+              DallasTemperature sensors(&oneWire);
             }
           }
         }
@@ -293,17 +305,39 @@ void loop() {
         }else if(nome.indexOf("fluxo") >= 0){
           //Serial.printf("quant: %d", jsonFormat.nVarInt);
           //Serial.printf("Id: %d\n", jsonDoc[i]["id"].as<int>());
-          contaPulso = 0;
-        
+          contaPulso1 = 0;
+          contaPulso2 = 0;
+
+          teste = i;
           sei();        //Habilita interrupção
           delay (1000); //Aguarda 1 segundo
           cli();   
-        
-          SFA  = contaPulso / 5.5; //Converte para L/min
-            
+
+          if(teste == 4){
+            SFA  = contaPulso1 / 5.5;
+          }else if(teste == 5){
+              SFA = contaPulso2 / 5.5;
+            }
+          //SFA  = contaPulso1 / 5.5; //Converte para L/min
+
+          //Serial.printf("SFA: %f",SFA);
+          
           var[i].idv = jsonDoc[i]["id"].as<int>();
           var[i].val = SFA; 
                
+        }else if(nome.indexOf("temperatura") >= 0){
+          float Celcius=0;
+          sensors.requestTemperatures(); 
+          Celcius=sensors.getTempCByIndex(0);
+        
+          var[i].idv = jsonDoc[i]["id"].as<int>();
+          var[i].val = Celcius; 
+        }else if(nome.indexOf("bomba") >= 0){
+          var[i].idv = jsonDoc[i]["id"].as<int>();
+          var[i].val = -1;   
+        }else if(nome.indexOf("solenoide") >= 0){
+          var[i].idv = jsonDoc[i]["id"].as<int>();
+          var[i].val = -1; 
         }
         
       }
@@ -391,7 +425,12 @@ void loop() {
   }
 }
 
-void incpulso ()
+void incpulso1 ()
 { 
-    contaPulso++; //Incrementa a variável de contagem dos pulsos
+  contaPulso1++;
+}
+
+void incpulso2 ()
+{ 
+  contaPulso2++;
 }
