@@ -17,12 +17,12 @@
 
         <h2>MENU</h2>
       	<a href="index.html">Painel Administrativo</a>
-        <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
+        <!-- <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
         	<a href="#">SNA</a>
           <a href="#">SFA</a>
           <a href="#">Sensor de Temperatura</a>
-        </div>
+        </div> -->
         <button class="dropdown-btn">Configurações<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
           <a href="crud-usuario.html">Usuários</a>
@@ -39,7 +39,17 @@
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>CRUD DE USUARIOS</p>
+      <!-- <p>CRUD DE USUARIOS</p> -->
+      <form class="caixa-usuarios" method="post">
+        <h1>Cadastrar novo usuário</h1>
+        <input type="text" name="" placeholder="Nome">
+        <input type="date" name="" placeholder="Data de nascimento">
+        <input type="number" name="" placeholder="Matricula funcional">
+        <input type="text" name="" placeholder="Endereço">
+        <input type="text" name="" placeholder="Formação">
+        <input type="text" name="" placeholder="Setor/Departamento">
+        <input type="submit" name="" value="Cadastrar">
+      </form>
     </div>
 
 </div>

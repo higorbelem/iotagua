@@ -8,6 +8,7 @@
  	<link rel="stylesheet" type="text/css" href="css/sidenav.css">
  	<link rel="stylesheet" type="text/css" href="css/config-style.css">
  	<link rel="stylesheet" type="text/css" href="css/switchs.css">
+ 	<link rel="stylesheet" type="text/css" href="css/select.css">
 </head>
 
 <body>
@@ -15,12 +16,12 @@
 <div class="sidenav" id="mySidenav"> <!-- Inicio Sidenav -->
     <h2>MENU</h2>
   	<a href="index.html">Painel Administrativo</a>
-    <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
+    <!-- <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
     	<a href="#">SNA</a>
       	<a href="#">SFA</a>
       	<a href="#">Sensor de Temperatura</a>
-    </div>
+    </div> -->
     <button class="dropdown-btn">Configurações<i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="crud-usuario.html">Usuários</a>
@@ -48,19 +49,22 @@
 		</label> <br>
 		<hr>
 		<h3>Atualizar dados à cada: </h3> 
-		<select>
-			<option>30 segundos</option>
-			<option>1 minuto</option>
-			<option>3 minutos</option>
-			<option>5 minutos</option>
-			<option>10 minutos</option>
-		</select>
+		<div class="custom-select">
+			<select>
+				<option>30 segundos</option>
+				<option>1 minuto</option>
+				<option>3 minutos</option>
+				<option>5 minutos</option>
+				<option>10 minutos</option>
+			</select>
+		</div>
 		<hr>
 	</div> <!-- Fim da area de configurações -->
 
 </div>
 
 <script type="text/javascript" src="js/sidebar-body.js"></script>
+<script type="text/javascript" src="js/select.js"></script>
 
 </body>
 
