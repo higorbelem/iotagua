@@ -71,18 +71,32 @@ public class MainResources {
 		if(post.getTipo() == 'r') {
 			
 		}else if(post.getTipo() == 'w'){
+			boolean semAcoes = true;
+			StringBuilder acoesJsonBuilder = new StringBuilder();
+			acoesJsonBuilder.append("[");
 			for(int i = 0 ; i < post.getMedicoes().size() ; i++) {
-				System.out.println("size" + post.getMedicoes().size());
-				System.out.println("valor" + post.getMedicoes().get(i).getValor());
-				System.out.println("id" + post.getMedicoes().get(i).getIdv());
+				//System.out.println("size" + post.getMedicoes().size());
+				//System.out.println("valor" + post.getMedicoes().get(i).getValor());
+				//System.out.println("id" + post.getMedicoes().get(i).getIdv());
 				try {
-					sendPostNivel(post.getMedicoes().get(i).getValor(),post.getMedicoes().get(i).getIdv());
+					String res = sendPostNivel(post.getMedicoes().get(i).getValor(),post.getMedicoes().get(i).getIdv());
+					
+					if(!res.contains("ok") && !res.contains("erro")) {
+						semAcoes = false;
+						acoesJsonBuilder.append(res + ",");
+						/*if(i < post.getMedicoes().size() - 1) {
+							acoesJsonBuilder.append(",");						
+						}*/
+					}
+					//return Response.accepted(res).build();                                                                                                                                             
 				}catch(Exception e){
 					System.out.println(e.toString());	
 					return Response.serverError().build();
 				}
 			}
-			return Response.accepted().build();
+			acoesJsonBuilder.deleteCharAt(acoesJsonBuilder.length()-1);
+			acoesJsonBuilder.append("]");
+			return Response.accepted(semAcoes ? "" : acoesJsonBuilder.toString()).build();
 			/*try {
 				sendPostNivel(post.);
 			}catch(Exception e){
@@ -161,7 +175,8 @@ public class MainResources {
 	    });
 	}*/
 	
-	private void sendPostNivel(double valor, int idSensor) throws Exception {
+	private String sendPostNivel(double valor, int idSensor) throws Exception {
+		
 
 		String url = "http://iotagua/IoT%c3%81gua%20-%20Modded/php/setNivel.php";
 
@@ -191,7 +206,7 @@ public class MainResources {
 		}
 		
 		System.out.println(result.toString());
-
+		return result.toString();
 	}
 	
 	private String sendPostGetSensores(int idSistema) throws Exception {

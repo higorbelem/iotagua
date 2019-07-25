@@ -2,8 +2,8 @@
 //sensor de nivel com utrassnic
   //#include "Ultrasonic.h"
   //Ultrasonic ultrasonic(D1, D2);
-  //#define ERROSENSOR 5
-  //#define PROFUNDIDADEMAX 32
+  #define ERROSENSOR 5
+  #define PROFUNDIDADEMAX 34
 //sensor de nivel com utrassonic
 
 //sensor de temperatura
@@ -55,6 +55,7 @@ JsonFormat jsonFormat;
 Var* var;
 bool configFinalizado = false;
 StaticJsonDocument<3000> jsonDoc;
+StaticJsonDocument<3000> acoesDocs;
 
 bool desserializaJson(String json){
   const int capacity = JSON_ARRAY_SIZE(20) + JSON_OBJECT_SIZE(5) + 2 * JSON_ARRAY_SIZE(1);
@@ -99,7 +100,7 @@ String criaJson(JsonFormat* jsonFormat){
     arrayObject["idv"] = jsonFormat->vars[i].idv;
     arrayObject["valor"] = jsonFormat->vars[i].val;
 
-    Serial.printf("id: %d, valor: %f\n", jsonFormat->vars[i].idv, jsonFormat->vars[i].val);
+    //Serial.printf("id: %d, valor: %f\n", jsonFormat->vars[i].idv, jsonFormat->vars[i].val);
   }
 
   String teste = doc.as<String>();
@@ -252,6 +253,10 @@ void loop() {
                             
               oneWire = OneWire(pino_temperatura);
               DallasTemperature sensors(&oneWire);
+            }else if(nome.indexOf("bomba") >= 0 || nome.indexOf("solenoide") >= 0){
+              uint8_t pino_rele = convertPin(jsonDoc[i]["pinos"][0]["rele"].as<char*>());
+              pinMode(pino_rele, OUTPUT_OPEN_DRAIN);
+              digitalWrite(pino_rele,  HIGH);  
             }
           }
         }
@@ -281,7 +286,8 @@ void loop() {
         String nome = jsonDoc[i]["nome"].as<char*>();
             
         if(nome.indexOf("nivel") >= 0){
-          long duration, distance;
+          long duration;
+          float distance;
 
           uint8_t pTrigger = convertPin(jsonDoc[i]["pinos"][0]["trigger"].as<char*>());
           uint8_t pEcho = convertPin(jsonDoc[i]["pinos"][1]["echo"].as<char*>());
@@ -295,13 +301,18 @@ void loop() {
           digitalWrite(pTrigger, LOW);
           duration = pulseIn(pEcho, HIGH);
           //Calculate the distance (in cm) based on the speed of sound.
-          distance = duration/58.2;
+          distance = (duration/58.2) - ERROSENSOR;
+
+          float percent = 100 - (distance/(PROFUNDIDADEMAX - ERROSENSOR)*100);
+
+          if(percent > 100) percent = 100;
+          if(percent < 0) percent = 0;
           
           var[i].idv = jsonDoc[i]["id"].as<int>();
-          var[i].val = distance;
+          var[i].val = percent;
           
           //Serial.printf("2trigger: %d , echo: %d\n", pTrigger, pEcho);
-          //Serial.printf("Id: %d , valor: %d\n", jsonDoc[i]["id"].as<int>(), distance);
+          //Serial.printf("Id: %d , valor: %d\n", jsonDoc[i]["id"].as<int>(), percent);
         }else if(nome.indexOf("fluxo") >= 0){
           //Serial.printf("quant: %d", jsonFormat.nVarInt);
           //Serial.printf("Id: %d\n", jsonDoc[i]["id"].as<int>());
@@ -347,7 +358,29 @@ void loop() {
       String res = sendHttp(&jsonFormat);
 
       if(res != ""){
-          
+        Serial.println(res);
+        DeserializationError err = deserializeJson(acoesDocs, res);
+
+        if(err){
+          Serial.print("erro: ");
+          Serial.println(err.c_str());
+        }else{
+          int i = 0;
+          int j = 0;
+          for(i = 0 ; i < acoesDocs.size() ; i++){
+            for(j = 0 ; j < acoesDocs[i].size() ; j++){
+              int acao = acoesDocs[i][j]["acao"].as<int>();
+              uint8_t pinRele = convertPin(acoesDocs[i][j]["pinos"][0]["rele"].as<char*>());
+              Serial.println(acao);
+              Serial.println(pinRele);
+              if(acao == 0){
+                digitalWrite(pinRele,  HIGH);     
+              }else if(acao == 1){
+                digitalWrite(pinRele,  LOW);     
+              }
+            }
+          }
+        }
       }
 
       free(var);
