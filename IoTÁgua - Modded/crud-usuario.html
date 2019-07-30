@@ -40,14 +40,14 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <!-- <p>CRUD DE USUARIOS</p> -->
-      <form class="caixa-usuarios" method="post">
+      <form name="formUsuario" class="caixa-usuarios" onsubmit="return valida()" method="post">
         <h1>Cadastrar novo usuário</h1>
-        <input type="text" name="" placeholder="Nome">
-        <input type="date" name="" placeholder="Data de nascimento">
-        <input type="number" name="" placeholder="Matricula funcional">
-        <input type="text" name="" placeholder="Endereço">
-        <input type="text" name="" placeholder="Formação">
-        <input type="text" name="" placeholder="Setor/Departamento">
+        <input type="text" name="nome" placeholder="Nome">
+        <input type="date" name="dataDeNascimento" placeholder="Data de nascimento">
+        <input type="number" name="matricula" placeholder="Matricula funcional">
+        <input type="text" name="endereco" placeholder="Endereço">
+        <input type="text" name="formacao" placeholder="Formação">
+        <input type="text" name="setor" placeholder="Setor/Departamento">
         <input type="submit" name="" value="Cadastrar">
       </form>
     </div>
@@ -79,7 +79,9 @@
   integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
   crossorigin="anonymous"></script> -->
 
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/sidebar-body.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
+<script src="js/crudUsuario.js"></script>
 
 </html>
