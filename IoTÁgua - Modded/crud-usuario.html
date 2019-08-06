@@ -2,9 +2,9 @@
 <html>
 
 <head>
-	<title>Usuários</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
+  <title>Usuários</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/sidenav.css">
   <link rel="stylesheet" type="text/css" href="css/modal.css">
@@ -13,64 +13,78 @@
 
 <body onload='draw(0);'>
 
-  	<div class="sidenav" id="mySidenav"> <!-- Inicio Sidenav -->
+  <div class="sidenav" id="mySidenav">
+    <!-- Inicio Sidenav -->
 
-        <h2>MENU</h2>
-      	<a href="index.html">Painel Administrativo</a>
-        <!-- <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
+    <h2>MENU</h2>
+    <a href="index.html">Painel Administrativo</a>
+    <!-- <button class="dropdown-btn">Sensores<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
         	<a href="#">SNA</a>
           <a href="#">SFA</a>
           <a href="#">Sensor de Temperatura</a>
         </div> -->
-        <button class="dropdown-btn">Configurações<i class="fa fa-caret-down"></i></button>
-        <div class="dropdown-container">
-          <a href="crud-usuario.html">Usuários</a>
-          <a href="crud-sensores.html">Sensores</a>
-          <a href="configuracao-sistema.html">Sistema</a>
-        </div>
-
-    </div> <!-- Fim Sidenav -->
-    
-<div id="main" > <!-- Inicio MAIN -->
-
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <!-- <p>CRUD DE USUARIOS</p> -->
-      <form name="formUsuario" class="caixa-usuarios" onsubmit="return valida()" method="post">
-        <h1>Cadastrar novo usuário</h1>
-        <input type="text" name="nome" placeholder="Nome">
-        <input type="date" name="dataDeNascimento" placeholder="Data de nascimento">
-        <input type="number" name="matricula" placeholder="Matricula funcional">
-        <input type="text" name="endereco" placeholder="Endereço">
-        <input type="text" name="formacao" placeholder="Formação">
-        <input type="text" name="setor" placeholder="Setor/Departamento">
-        <input type="submit" name="" value="Cadastrar">
-      </form>
+    <button class="dropdown-btn">Configurações<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+      <a href="crud-usuario.html">Usuários</a>
+      <a href="crud-sensores.html">Sensores</a>
+      <a href="configuracao-sistema.html">Sistema</a>
     </div>
 
-</div>
+  </div> <!-- Fim Sidenav -->
 
-<div id="cabecalho">
-  <h2>Configurações de Usuários</h2>
-</div>
+  <div id="main">
+    <!-- Inicio MAIN -->
 
-<div id="area-listagem">
-  <div id="user">
-    <ul>
-      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
-      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
-      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
-      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
-      <li>Sensor 1 <span>alguma infi</span> <i>x</i></li>
-    </ul>
-    <button id="myBtn">Novo</button>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- <p>CRUD DE USUARIOS</p> -->
+        <form name="formUsuario" class="caixa-usuarios" onsubmit="return valida()" method="post">
+          <h1>Cadastrar novo usuário</h1>
+          <input type="text" name="nome" placeholder="Nome">
+          <input type="date" name="dataDeNascimento" placeholder="Data de nascimento">
+          <input type="number" name="matricula" placeholder="Matricula funcional">
+          <input type="text" name="endereco" placeholder="Endereço">
+          <input type="text" name="formacao" placeholder="Formação">
+          <input type="text" name="setor" placeholder="Setor/Departamento">
+          <input type="submit" name="" value="Cadastrar">
+        </form>
+      </div>
+
+    </div>
+
+    <div id="viewModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- <p>CRUD DE USUARIOS</p> -->
+        <div>Nome: <span class="spanNome"></span></div>
+        <div>Nascimento: <span class="spanNascimento"></span></div>
+        <div>Matrícula: <span class="spanMatricula"></span></div>
+        <div>Endereço: <span class="spanEndereco"></span></div>
+        <div>Formação: <span class="spanFormacao"></span></div>
+        <div>Setor: <span class="spanSetor"></span></div>
+      </div>
+
+    </div>
+
+    <div id="cabecalho">
+      <h2>Configurações de Usuários</h2>
+    </div>
+
+    <div id="area-listagem">
+      <div id="user">
+        <ul class="listSensores">
+
+        </ul>
+        <button id="myBtn">Novo</button>
+      </div>
+    </div>
   </div>
-</div>
-    
 
 </body>
 
@@ -82,6 +96,6 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/sidebar-body.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
-<script src="js/crudUsuario.js"></script>
+<script type="text/javascript" src="js/crudUsuario.js"></script>
 
 </html>

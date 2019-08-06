@@ -307,6 +307,35 @@ void loop() {
 
           if(percent > 100) percent = 100;
           if(percent < 0) percent = 0;
+
+          //ligando ou desligando bomba de acordo com nível
+          if(percent >= 80){
+            Serial.println("acima de 80");
+            int j = 0;
+            for(j = 0 ; j < jsonDoc.size() ; j++){
+              String nome1 = jsonDoc[j]["nome"].as<char*>();
+              if(nome1.indexOf("bomba") >= 0){
+                Serial.println("achou bomba");
+                uint8_t pino_rele = convertPin(jsonDoc[j]["pinos"][0]["rele"].as<char*>());
+                digitalWrite(pino_rele,  HIGH);  
+              }else{
+                Serial.println("achou bomba");
+              }
+            }
+          }else if(percent <= 20){
+            Serial.println("abaixo de 20");
+            int j = 0;
+            for(j = 0 ; j < jsonDoc.size() ; j++){
+              String nome1 = jsonDoc[j]["nome"].as<char*>();
+              if(nome1.indexOf("bomba") >= 0){
+                Serial.println("achou bomba");
+                uint8_t pino_rele = convertPin(jsonDoc[j]["pinos"][0]["rele"].as<char*>());
+                digitalWrite(pino_rele,  LOW);  
+              }else{
+                Serial.println("achou bomba");
+              }
+            }
+          }
           
           var[i].idv = jsonDoc[i]["id"].as<int>();
           var[i].val = percent;
@@ -328,7 +357,7 @@ void loop() {
             SFA  = contaPulso1 / 5.5;
           }else if(teste == 5){
               SFA = contaPulso2 / 5.5;
-            }
+          }
           //SFA  = contaPulso1 / 5.5; //Converte para L/min
 
           //Serial.printf("SFA: %f",SFA);
