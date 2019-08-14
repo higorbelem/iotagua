@@ -1,4 +1,3 @@
-
 //sensor de nivel com utrassnic
   //#include "Ultrasonic.h"
   //Ultrasonic ultrasonic(D1, D2);
@@ -56,6 +55,15 @@ Var* var;
 bool configFinalizado = false;
 StaticJsonDocument<3000> jsonDoc;
 StaticJsonDocument<3000> acoesDocs;
+
+float volumeReservatorio = 0;
+int numLoopsCheckVazammento = 30;
+int countLoopsCheckVazammento = 0;
+float percentReservatorioInicio = 0;
+float percentReservatorioFim = 0;
+float litrosVazados = 0; 
+long tempoAnterior = 0;
+long fluxoAnterior = 0; 
 
 bool desserializaJson(String json){
   const int capacity = JSON_ARRAY_SIZE(20) + JSON_OBJECT_SIZE(5) + 2 * JSON_ARRAY_SIZE(1);
@@ -228,6 +236,7 @@ void loop() {
           for(i = 0 ; i < jsonDoc.size() ; i++){
             //Serial.println(jsonDoc[i]["nome"].as<char*>());
             String nome = jsonDoc[i]["nome"].as<char*>();
+            volumeReservatorio = jsonDoc[i]["volumeReservatorio"].as<float>();
             
             if(nome.indexOf("nivel") >= 0){
               //Serial.println(jsonDoc[i]["pinos"][0]["pino1"].as<char*>());
@@ -310,35 +319,36 @@ void loop() {
 
           //ligando ou desligando bomba de acordo com nível
           if(percent >= 80){
-            Serial.println("acima de 80");
             int j = 0;
             for(j = 0 ; j < jsonDoc.size() ; j++){
               String nome1 = jsonDoc[j]["nome"].as<char*>();
               if(nome1.indexOf("bomba") >= 0){
-                Serial.println("achou bomba");
                 uint8_t pino_rele = convertPin(jsonDoc[j]["pinos"][0]["rele"].as<char*>());
                 digitalWrite(pino_rele,  HIGH);  
-              }else{
-                Serial.println("achou bomba");
               }
             }
           }else if(percent <= 20){
-            Serial.println("abaixo de 20");
             int j = 0;
             for(j = 0 ; j < jsonDoc.size() ; j++){
               String nome1 = jsonDoc[j]["nome"].as<char*>();
               if(nome1.indexOf("bomba") >= 0){
-                Serial.println("achou bomba");
                 uint8_t pino_rele = convertPin(jsonDoc[j]["pinos"][0]["rele"].as<char*>());
                 digitalWrite(pino_rele,  LOW);  
-              }else{
-                Serial.println("achou bomba");
               }
             }
           }
           
           var[i].idv = jsonDoc[i]["id"].as<int>();
           var[i].val = percent;
+
+          //calculo do vazamento
+          if(countLoopsCheckVazammento == 0){
+            percentReservatorioInicio = percent;
+          }else{
+            if(countLoopsCheckVazammento == numLoopsCheckVazammento - 1){
+              percentReservatorioFim = percent;
+            }
+          }
           
           //Serial.printf("2trigger: %d , echo: %d\n", pTrigger, pEcho);
           //Serial.printf("Id: %d , valor: %d\n", jsonDoc[i]["id"].as<int>(), percent);
@@ -356,7 +366,7 @@ void loop() {
           if(teste == 4){
             SFA  = contaPulso1 / 5.5;
           }else if(teste == 5){
-              SFA = contaPulso2 / 5.5;
+            SFA = contaPulso2 / 5.5;
           }
           //SFA  = contaPulso1 / 5.5; //Converte para L/min
 
@@ -364,6 +374,12 @@ void loop() {
           
           var[i].idv = jsonDoc[i]["id"].as<int>();
           var[i].val = SFA; 
+
+          //calculando quantos litros ja sairam pelas torneiras considerando intervalos de 2 segundos
+          litrosVazados += (fluxoAnterior / 60) * ((tempoAnterior - millis()) / 1000);
+
+          fluxoAnterior = SFA;
+          tempoAnterior = millis();
                
         }else if(nome.indexOf("temperatura") >= 0){
           float Celcius=0;
@@ -412,9 +428,21 @@ void loop() {
         }
       }
 
+      countLoopsCheckVazammento++;
+      
+      if(countLoopsCheckVazammento >= numLoopsCheckVazammento){
+         float litrosVazadosReservatorio = ((volumeReservatorio * (percentReservatorioFim / 100)) - (volumeReservatorio * (percentReservatorioInicio / 100))) / 1000;
+        //litrosVazadosReservatorio = litrosVazadosReservatorio < 0 ? 0 : litrosVazadosReservatorio;
+        Serial.printf("litrosVazados: %f / %f\n",litrosVazados, litrosVazadosReservatorio);
+        litrosVazados = 0;
+        countLoopsCheckVazammento = 0;
+      }else{
+        Serial.printf("Ainda não: %d\n", countLoopsCheckVazammento);
+      }
+
       free(var);
       
-      delay (2000);
+      delay (1000);
       
       //sensor de nivel com utrassonic
       /*float cmMsec = ultrasonic.convert(ultrasonic.timing(), Ultrasonic::CM) - ERROSENSOR;
